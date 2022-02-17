@@ -7,9 +7,10 @@ import {
   ScrollRestoration
 } from "remix";
 import type { MetaFunction } from "remix";
+import { NextUIProvider } from "@nextui-org/react";
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: "WebsDevs" };
 };
 
 export default function App() {
@@ -22,10 +23,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <NextUIProvider>
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </NextUIProvider>
       </body>
     </html>
   );

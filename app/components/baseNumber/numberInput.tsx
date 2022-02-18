@@ -1,25 +1,35 @@
-import * as React from 'react';
-import { Row, Input, Spacer } from "@nextui-org/react";
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Input } from "@nextui-org/react";
 
-import { useNumberBase } from "~/hooks/numberBase";
+import { useNumberBase } from "../../hooks/numberBase";
 
 type NumberProps = {
     name: string;
     base: number;
+    globalNumber: number | null;
+    setGlobalNumber: Dispatch<SetStateAction<number | null>>,
 }
 
-export const NumberInput: React.VFC<NumberProps> = ({ base, name }) => {
-    const { setBaseNumberString, baseNumberError, number } = useNumberBase(base);
+export const NumberInput: React.VFC<NumberProps> = ({ base, name, globalNumber, setGlobalNumber }) => {
+    const { setBaseNumberString, number, toBase } = useNumberBase(base);
+    const [result, setResult] = useState<string>('');
 
+    useEffect(() => {
+        setGlobalNumber(number);
+    }, [number]);
+
+    useEffect(() => {
+        if (globalNumber !== null) {
+            const result = toBase(globalNumber, base);
+            setResult(result);
+        } else {
+            setResult("");
+        }
+    }, [globalNumber]);
 
     return (
-        <div>
-            <Spacer y={2}></Spacer>
-            <Row justify="center">
-                <Input labelPlaceholder={name} width="40%" onChange={(e) => {
-                    setBaseNumberString(e.target.value);
-                }} />
-            </Row>
-        </div>
+        <Input labelPlaceholder={name} width="100%" value={result} onChange={(e) => {
+            setBaseNumberString(e.target.value);
+        }} />
     )
 }

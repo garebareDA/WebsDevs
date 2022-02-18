@@ -3,32 +3,42 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 export const useNumberBase = (base: number):{
     baseNumberString:string,
     setBaseNumberString:Dispatch<SetStateAction<string>>,
-    number:number,
-    setNumber:Dispatch<SetStateAction<number>>,
-    baseNumberError:boolean,
+    number:number | null,
+    setNumber:Dispatch<SetStateAction<number | null>>,
+    toBase:(number:number, radix:number)=>string,
 } => {
     const [baseNumberString, setBaseNumberString] = useState<string>("");
-    const [number, setNumber] = useState<number>(0);
-    const [baseNumberError, setBaseNumberError] = useState<boolean>(false);
+    const [number, setNumber] = useState<number | null>(null);
 
     useEffect(() => {
-        const parsed = parseInt(baseNumberString, base);
-        if(isNaN(parsed)) {
-            setBaseNumberError(true);
+        if(baseNumberString === "")
+        {
+            setNumber(null);
             return;
         }
 
-        setBaseNumberError(false);
+        const parsed = fromBase(baseNumberString, base);//10進数に変換
+        if(isNaN(parsed)) {
+            return;
+        }
         setNumber(parsed);
     }, [baseNumberString]);
 
-    
+    const fromBase = (string:string, radix:number):number => {
+        const parsed = parseInt(string, radix);
+        if(!Number.isSafeInteger(parsed)) return NaN;
+        return parsed;
+    }
+
+    const toBase = (number:number, radix:number):string => {
+        return number.toString(radix);
+    }
 
     return {
         baseNumberString,
         setBaseNumberString,
         number,
         setNumber,
-        baseNumberError,
+        toBase,
     }
 }

@@ -7,7 +7,7 @@ type NumberProps = {
     name: string;
     base: number;
     globalNumber: number | null;
-    setGlobalNumber: Dispatch<SetStateAction<number | null>>,
+    setGlobalNumber: (num:number | null) => void;
 }
 
 export const NumberInput: React.VFC<NumberProps> = ({ base, name, globalNumber, setGlobalNumber }) => {

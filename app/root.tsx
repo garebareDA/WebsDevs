@@ -1,14 +1,14 @@
+import React from "react";
 import {
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
 import { NextUIProvider } from "@nextui-org/react";
-import { IconlyProvider } from "react-iconly";
 
 export const meta: MetaFunction = () => {
   return { title: "WebsDevs" };

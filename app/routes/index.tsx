@@ -3,6 +3,7 @@ import { Grid } from "@nextui-org/react";
 
 import baseNumberIcon from "~/assets/image/icon/NumberBase.png";
 import convertIcon from "~/assets/image/icon/Convert.png";
+import htmlIcon from "~/assets/image/icon/HTML.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -14,6 +15,9 @@ export default function Index(): React.ReactElement {
         </Grid>
         <Grid>
           <AppCard name="json<=>yaml" icon={convertIcon} url="convert" />
+        </Grid>
+        <Grid>
+          <AppCard name="html" icon={htmlIcon} url="html" />
         </Grid>
       </Grid.Container>
     </div>

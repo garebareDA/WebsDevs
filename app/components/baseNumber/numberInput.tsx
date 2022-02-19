@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "@nextui-org/react";
 
-import { useNumberBase } from "../../hooks/numberBase";
+import { useNumberBase } from "../../hooks/baseNumber";
 
 type NumberProps = {
   name: string;
@@ -15,7 +15,7 @@ export const NumberInput: React.VFC<NumberProps> = ({
   name,
   globalNumber,
   setGlobalNumber,
-}:NumberProps) => {
+}: NumberProps) => {
   const { setBaseNumberString, number, toBase } = useNumberBase(base);
   const [result, setResult] = useState<string>("");
 

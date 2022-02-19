@@ -8,7 +8,11 @@ type CardProps = {
   url: string;
 };
 
-export const AppCard: React.VFC<CardProps> = ({ name, icon, url }:CardProps) => {
+export const AppCard: React.VFC<CardProps> = ({
+  name,
+  icon,
+  url,
+}: CardProps) => {
   const navigate = useNavigate();
   return (
     <div>

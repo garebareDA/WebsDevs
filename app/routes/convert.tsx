@@ -2,10 +2,11 @@ import { Container, Spacer } from "@nextui-org/react";
 import { Title } from "~/components/util/title";
 import { useConvertJsonYaml } from "~/hooks/convert";
 import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function Index(): React.ReactElement {
-  const { json, setJson, yaml, setYaml, jsonConvertError, yamlConvertError } = useConvertJsonYaml();
+  const { json, setJson, yaml, setYaml, jsonConvertError, yamlConvertError } =
+    useConvertJsonYaml();
 
   return (
     <div>
@@ -14,14 +15,14 @@ export default function Index(): React.ReactElement {
         <Title title="json<=>yaml"></Title>
         <Spacer y={2} />
         <TextAreaEncodeDecode
-          encodeSet={setJson}
-          encodeValue={json}
-          encodeLabel="json"
-          encodeStatus={jsonConvertError ? "error" : "default"}
-          decodeSet={setYaml}
-          decodeValue={yaml}
-          decodeLabel="yaml"
-          decodeStatus={yamlConvertError ? "error" : "default"}
+          decodeSet={setJson}
+          decodeValue={json}
+          decodeLabel="json"
+          decodeStatus={jsonConvertError ? "error" : "default"}
+          encodeSet={setYaml}
+          encodeValue={yaml}
+          encodeLabel="yaml"
+          encodeStatus={yamlConvertError ? "error" : "default"}
         />
       </Container>
     </div>

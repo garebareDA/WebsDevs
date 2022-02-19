@@ -15,7 +15,7 @@ export const NumberInput: React.VFC<NumberProps> = ({
   name,
   globalNumber,
   setGlobalNumber,
-}:NumberProps) => {
+}: NumberProps) => {
   const { setBaseNumberString, number, toBase } = useNumberBase(base);
   const [result, setResult] = useState<string>("");
 

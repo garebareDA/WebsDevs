@@ -15,29 +15,20 @@ export const useHtml = (): {
   const [encodeError, setEncodeError] = useState<boolean>(false);
 
   useEffect(() => {
-    if (decode === "") {
-      setDecodeError(false);
-      return;
-    }
-
     try {
       const result = HTMLDecoderEncoder.encode(decode);
       setEncode(result);
-      console.log(result);
+      setDecodeError(false);
     } catch (e) {
       setDecodeError(true);
     }
   }, [decode]);
 
   useEffect(() => {
-    if (encode === "") {
-      setEncodeError(false);
-      return;
-    }
-
     try {
       const result = HTMLDecoderEncoder.decode(encode);
       setDecode(result);
+      setEncodeError(false);
       console.log(result);
     } catch (e) {
       setDecodeError(true);

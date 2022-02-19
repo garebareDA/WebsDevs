@@ -16,7 +16,11 @@ export const useConvertJsonYaml = (): {
   const [yamlConvertError, setYamlConvertError] = useState<boolean>(false);
 
   useEffect(() => {
-    if (json === "") return;
+    if (json === "") {
+      setJsonConvertError(false);
+      return;
+    }
+
     try {
       const doc = JSON.parse(json);
       const data = jsonToYaml.stringify(doc);
@@ -28,7 +32,11 @@ export const useConvertJsonYaml = (): {
   }, [json]);
 
   useEffect(() => {
-    if (yaml === "") return;
+    if (yaml === "") {
+      setYamlConvertError(false);
+      return;
+    }
+
     try {
       const doc = yamlToJson.load(yaml);
       const data = JSON.stringify(doc);

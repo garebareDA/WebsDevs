@@ -15,11 +15,11 @@ export default function Index(): React.ReactElement {
         <TextAreaEncodeDecode
           decodeSet={setDecode}
           decodeValue={decode}
-          decodeLabel="decode"
+          decodeLabel="decoded"
           decodeStatus={decodeError ? "error" : "default"}
           encodeSet={setEncode}
           encodeValue={encode}
-          encodeLabel="encode"
+          encodeLabel="encoded"
           encodeStatus={encodeError ? "error" : "default"}
         />
       </Container>

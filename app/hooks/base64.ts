@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Base64 } from "js-base64";
 
 export const useBase64 = () => {
   const [decode, setDecode] = useState<string>("");
@@ -8,7 +9,7 @@ export const useBase64 = () => {
 
   useEffect(() => {
     try {
-      const result = atob(decode);
+      const result = Base64.encode(decode);
       setEncode(result);
       setDecodeError(false);
     } catch (e) {
@@ -18,7 +19,7 @@ export const useBase64 = () => {
 
   useEffect(() => {
     try {
-      const result = btoa(encode);
+      const result = Base64.decode(encode);
       setDecode(result);
       setEncodeError(false);
     } catch (e) {

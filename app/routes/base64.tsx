@@ -9,9 +9,9 @@ export default function Index(): React.ReactElement {
 
   return (
     <div>
-      <Container gap={1} justify="center" css={{ maxWidth: "60%" }}>
+      <Container gap={1} justify="center">
         <Spacer y={1} />
-        <Title title="Base Number"></Title>
+        <Title title="Base64"></Title>
         <Spacer y={2} />
         <TextAreaEncodeDecode
           decodeValue={decode}

@@ -9,7 +9,7 @@ export default function Index(): React.ReactElement {
     useHtml();
   return (
     <div>
-      <Container gap={1} justify="center" css={{ maxWidth: "60%" }}>
+      <Container gap={1} justify="center">
         <Spacer y={1} />
         <Title title="HTML"></Title>
         <Spacer y={2} />

@@ -8,7 +8,7 @@ export default function Index(): React.ReactElement {
   const { decode, setDecode, encode, setEncode, decodeError, encodeError } = useURL();
   return(
     <div>
-      <Container gap={1} justify="center" css={{maxWidth:"60%"}}>
+      <Container gap={1} justify="center">
         <Spacer y={1} />
         <Title title="URL"></Title>
         <Spacer y={2} />

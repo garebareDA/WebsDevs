@@ -8,7 +8,7 @@ export default function BaseNumber(): React.ReactElement {
 
   return (
     <div>
-      <Container gap={1} justify="center" css={{ maxWidth: "60%" }}>
+      <Container gap={1} justify="center">
         <Spacer y={1} />
         <Title title="Base Number"></Title>
 

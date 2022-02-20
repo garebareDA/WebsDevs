@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import fmt2json from "format-to-json";
 
 export const useJsonFormatter = (): {
   json: string,
@@ -16,12 +17,14 @@ export const useJsonFormatter = (): {
       setError(false);
       return;
     }
+
     try {
-      const result = JSON.parse(json);
-      const format = beautify(result, [], 2, 80);
-      console.log(format);
-      setFormatted(format);
-      setError(false);
+      fmt2json(json).then((formatted) => {
+        if(typeof formatted !== "string") {
+            setFormatted(formatted.result);
+          }
+        setError(false);
+      });
     } catch (e) {
       setError(true);
     }

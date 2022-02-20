@@ -10,6 +10,7 @@ type Props = {
   decodeValue: string;
   decodeLabel: string;
   decodeStatus: "error" | "default";
+  readonly?: boolean;
 };
 
 export const TextAreaEncodeDecode = ({
@@ -21,6 +22,7 @@ export const TextAreaEncodeDecode = ({
   decodeValue,
   decodeLabel,
   decodeStatus,
+  readonly = false,
 }: Props): React.ReactElement => {
   return (
     <Grid.Container gap={2} justify="center" alignItems="flex-start">
@@ -40,6 +42,7 @@ export const TextAreaEncodeDecode = ({
 
       <Grid xs={6}>
         <Textarea
+          readOnly={readonly}
           maxRows={500}
           minRows={20}
           labelPlaceholder={encodeLabel}

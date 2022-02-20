@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
-const HTMLDecoderEncoder = require("html-encoder-decoder");
+import { Base64 } from "js-base64";
 
-export const useHtml = (): {
-  decode: string;
-  setDecode: (decode: string) => void;
-  encode: string;
-  setEncode: (encode: string) => void;
-  decodeError: boolean;
-  encodeError: boolean;
-} => {
+export const useBase64 = () => {
   const [decode, setDecode] = useState<string>("");
   const [encode, setEncode] = useState<string>("");
   const [decodeError, setDecodeError] = useState<boolean>(false);
@@ -16,7 +9,7 @@ export const useHtml = (): {
 
   useEffect(() => {
     try {
-      const result = HTMLDecoderEncoder.encode(decode);
+      const result = Base64.encode(decode);
       setEncode(result);
       setDecodeError(false);
     } catch (e) {
@@ -26,12 +19,11 @@ export const useHtml = (): {
 
   useEffect(() => {
     try {
-      const result = HTMLDecoderEncoder.decode(encode);
+      const result = Base64.decode(encode);
       setDecode(result);
       setEncodeError(false);
-      console.log(result);
     } catch (e) {
-      setDecodeError(true);
+      setEncodeError(true);
     }
   }, [encode]);
 

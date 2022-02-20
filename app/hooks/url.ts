@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-const HTMLDecoderEncoder = require("html-encoder-decoder");
 
-export const useHtml = (): {
+export const useURL = (): {
   decode: string;
   setDecode: (decode: string) => void;
   encode: string;
@@ -16,7 +15,8 @@ export const useHtml = (): {
 
   useEffect(() => {
     try {
-      const result = HTMLDecoderEncoder.encode(decode);
+      const result = encodeURIComponent(decode);
+      console.log(result);
       setEncode(result);
       setDecodeError(false);
     } catch (e) {
@@ -26,12 +26,12 @@ export const useHtml = (): {
 
   useEffect(() => {
     try {
-      const result = HTMLDecoderEncoder.decode(encode);
+      const result = decodeURIComponent(encode);
+      console.log(result);
       setDecode(result);
       setEncodeError(false);
-      console.log(result);
     } catch (e) {
-      setDecodeError(true);
+      setEncodeError(true);
     }
   }, [encode]);
 

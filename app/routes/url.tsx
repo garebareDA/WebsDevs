@@ -1,17 +1,16 @@
 import React from "react";
 import { Container, Spacer } from "@nextui-org/react";
-import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
 import { Title } from "~/components/util/title";
-import { useHtml } from "~/hooks/html";
+import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
+import { useURL } from "~/hooks/url";
 
 export default function Index(): React.ReactElement {
-  const { decode, setDecode, encode, setEncode, decodeError, encodeError } =
-    useHtml();
-  return (
+  const { decode, setDecode, encode, setEncode, decodeError, encodeError } = useURL();
+  return(
     <div>
       <Container gap={1} justify="center">
         <Spacer y={1} />
-        <Title title="HTML"></Title>
+        <Title title="URL"></Title>
         <Spacer y={2} />
         <TextAreaEncodeDecode
           decodeSet={setDecode}

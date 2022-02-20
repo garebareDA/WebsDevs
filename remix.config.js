@@ -10,4 +10,11 @@ module.exports = {
   // serverBuildPath: "netlify/functions/server/index.js",
   // publicPath: "/build/",
   // devServerPort: 8002
+
+  serverDependenciesToBundle: [
+    /^rehype.*/,
+    /^remark.*/,
+    /^unified.*/,
+    "@zip.js/zip.js",
+  ]
 };

@@ -1,25 +1,25 @@
 import React from "react";
 import { Container, Spacer } from "@nextui-org/react";
-import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
 import { Title } from "~/components/util/title";
-import { useHtml } from "~/hooks/html";
+import { useBase64 } from "~/hooks/base64";
+import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
 
 export default function Index(): React.ReactElement {
-  const { decode, setDecode, encode, setEncode, decodeError, encodeError } =
-    useHtml();
+  const { decode, setDecode, encode, setEncode, decodeError, encodeError } = useBase64();
+
   return (
     <div>
       <Container gap={1} justify="center">
         <Spacer y={1} />
-        <Title title="HTML"></Title>
+        <Title title="Base64"></Title>
         <Spacer y={2} />
         <TextAreaEncodeDecode
-          decodeSet={setDecode}
           decodeValue={decode}
+          decodeSet={setDecode}
           decodeLabel="decoded"
           decodeStatus={decodeError ? "error" : "default"}
-          encodeSet={setEncode}
           encodeValue={encode}
+          encodeSet={setEncode}
           encodeLabel="encoded"
           encodeStatus={encodeError ? "error" : "default"}
         />

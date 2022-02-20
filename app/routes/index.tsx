@@ -4,6 +4,7 @@ import { Grid } from "@nextui-org/react";
 import baseNumberIcon from "~/assets/image/icon/NumberBase.png";
 import convertIcon from "~/assets/image/icon/Convert.png";
 import htmlIcon from "~/assets/image/icon/HTML.png";
+import base64Icon from "~/assets/image/icon/Base64.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -18,6 +19,10 @@ export default function Index(): React.ReactElement {
         </Grid>
         <Grid>
           <AppCard name="html" icon={htmlIcon} url="html" />
+        </Grid>
+
+        <Grid>
+          <AppCard name="base64" icon={base64Icon} url="base64"></AppCard>
         </Grid>
       </Grid.Container>
     </div>

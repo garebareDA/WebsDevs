@@ -5,7 +5,7 @@ import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
 import React from "react";
 
 export default function Index(): React.ReactElement {
-  const { json, setJson, yaml, setYaml, jsonConvertError, yamlConvertError } =
+  const { json, convertJsonToYaml, yaml, convertYamlToJson, jsonConvertError, yamlConvertError } =
     useConvertJsonYaml();
 
   return (
@@ -15,11 +15,11 @@ export default function Index(): React.ReactElement {
         <Title title="json<=>yaml"></Title>
         <Spacer y={2} />
         <TextAreaEncodeDecode
-          decodeSet={setJson}
+          decodeSet={convertJsonToYaml}
           decodeValue={json}
           decodeLabel="json"
           decodeStatus={jsonConvertError ? "error" : "default"}
-          encodeSet={setYaml}
+          encodeSet={convertYamlToJson}
           encodeValue={yaml}
           encodeLabel="yaml"
           encodeStatus={yamlConvertError ? "error" : "default"}

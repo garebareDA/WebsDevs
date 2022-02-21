@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 const jsonToYaml = require("json-to-pretty-yaml");
 const yamlToJson = require("js-yaml");
+import fmt2json from "format-to-json";
 
 export const useConvertJsonYaml = (): {
   json: string;
-  setJson: (json: string) => void;
+  convertJsonToYaml: (json: string) => void;
   yaml: string;
-  setYaml: (yaml: string) => void;
+  convertYamlToJson: (yaml: string) => void;
   yamlConvertError: boolean;
   jsonConvertError: boolean;
 } => {
@@ -15,7 +16,8 @@ export const useConvertJsonYaml = (): {
   const [jsonConvertError, setJsonConvertError] = useState<boolean>(false);
   const [yamlConvertError, setYamlConvertError] = useState<boolean>(false);
 
-  useEffect(() => {
+  const convertJsonToYaml = (json: string): void => {
+    setJson(json);
     if (json === "") {
       setJsonConvertError(false);
       return;
@@ -29,9 +31,10 @@ export const useConvertJsonYaml = (): {
     } catch (e) {
       setJsonConvertError(true);
     }
-  }, [json]);
+  };
 
-  useEffect(() => {
+  const convertYamlToJson = (yaml: string): void => {
+    setYaml(yaml);
     if (yaml === "") {
       setYamlConvertError(false);
       return;
@@ -40,18 +43,22 @@ export const useConvertJsonYaml = (): {
     try {
       const doc = yamlToJson.load(yaml);
       const data = JSON.stringify(doc);
-      setJson(data);
-      setYamlConvertError(false);
+      fmt2json(data).then((formatted) => {
+        if (typeof formatted !== "string") {
+          setJson(formatted.result);
+        }
+        setYamlConvertError(false);
+      });
     } catch (e) {
       setYamlConvertError(true);
     }
-  }, [yaml]);
+  };
 
   return {
     json,
-    setJson,
+    convertJsonToYaml,
     yaml,
-    setYaml,
+    convertYamlToJson,
     yamlConvertError,
     jsonConvertError,
   };

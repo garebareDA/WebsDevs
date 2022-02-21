@@ -7,6 +7,7 @@ import htmlIcon from "~/assets/image/icon/HTML.png";
 import base64Icon from "~/assets/image/icon/Base64.png";
 import zipIcon from "~/assets/image/icon/Zip.png";
 import jwtIcon from "~/assets/image/icon/Jwt.png";
+import jsonIcon from "~/assets/image/icon/Json.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -33,6 +34,10 @@ export default function Index(): React.ReactElement {
 
         <Grid>
           <AppCard name="JWT decoder" icon={jwtIcon} url="jwt"></AppCard>
+        </Grid>
+
+        <Grid>
+          <AppCard name="Json Formatter" icon={jsonIcon} url="jsonFormatter"></AppCard>
         </Grid>
       </Grid.Container>
     </div>

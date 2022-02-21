@@ -2,23 +2,23 @@ import React from "react";
 import { Container, Spacer } from "@nextui-org/react";
 import { Title } from "~/components/util/title";
 import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
-import { useJsonFormatter } from "~/hooks/jsonFormatter";
+import { useSqlFormatter } from "~/hooks/sqlFormatter";
 
-export default function Index(): React.ReactElement {
-  const {json, setJson, formatted, setFormatted, error} = useJsonFormatter();
-  return (
+export default function Index():React.ReactElement {
+  const { sql, setSql, formattedSql, setFormattedSql, error } = useSqlFormatter();
+  return(
     <div>
       <Container gap={1} justify="center">
         <Spacer y={1} />
-        <Title title="JSON Formatter"></Title>
+        <Title title="SQL Formatter"></Title>
         <Spacer y={2} />
         <TextAreaEncodeDecode
-          decodeSet={setJson}
-          decodeValue={json}
-          decodeLabel="json"
+          decodeSet={setSql}
+          decodeValue={sql}
+          decodeLabel="sql"
           decodeStatus={error ? "error" : "default"}
-          encodeSet={setFormatted}
-          encodeValue={formatted}
+          encodeSet={setFormattedSql}
+          encodeValue={formattedSql}
           encodeLabel="formatted(read only)"
           encodeStatus={"default"}
           readonly={true}

@@ -1,7 +1,7 @@
 import { format } from "sql-formatter";
 import { useState, useEffect } from "react";
 
-export const useSqlFormatter = ():{
+export const useSqlFormatter = (): {
   sql: string,
   setSql: (sql: string) => void,
   formattedSql: string,
@@ -13,12 +13,11 @@ export const useSqlFormatter = ():{
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (sql === "") return;
     try {
       setFormattedSql(format(sql));
-      setError(true);
-    } catch (error) {
       setError(false);
+    } catch (error) {
+      setError(true);
     }
   }, [sql]);
 

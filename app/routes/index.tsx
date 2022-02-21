@@ -9,6 +9,7 @@ import zipIcon from "~/assets/image/icon/Zip.png";
 import jwtIcon from "~/assets/image/icon/Jwt.png";
 import jsonIcon from "~/assets/image/icon/Json.png";
 import sqlIcon from "~/assets/image/icon/Sql.png";
+import xmlIcon from "~/assets/image/icon/Xml.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -43,6 +44,10 @@ export default function Index(): React.ReactElement {
 
         <Grid>
           <AppCard name="SQL Formatter" icon={sqlIcon} url="sqlFormatter"/>
+        </Grid>
+
+        <Grid>
+          <AppCard name="XML Formatter" icon={xmlIcon} url="xmlFormatter"/>
         </Grid>
       </Grid.Container>
     </div>

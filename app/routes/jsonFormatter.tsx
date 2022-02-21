@@ -19,7 +19,7 @@ export default function Index(): React.ReactElement {
           decodeStatus={error ? "error" : "default"}
           encodeSet={setFormatted}
           encodeValue={formatted}
-          encodeLabel="formatted"
+          encodeLabel="formatted(read only)"
           encodeStatus={"default"}
           readonly={true}
         />

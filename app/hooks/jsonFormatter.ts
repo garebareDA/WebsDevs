@@ -19,6 +19,7 @@ export const useJsonFormatter = (): {
     }
 
     try {
+      JSON.parse(json);
       fmt2json(json).then((formatted) => {
         if(typeof formatted !== "string") {
             setFormatted(formatted.result);

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { loremIpsum } from "lorem-ipsum";
 import { LoremUnit } from "lorem-ipsum/types/src/constants/units";
 
 export const useLoremIpsum = (): {
   loremIpsum: string;
-  generateLoremIpsum: (unit: LoremUnit) => void;
+  generateLoremIpsum: () => void;
+  count: number;
   setCount: (count: number) => void;
   setUnits: (unit: LoremUnit) => void;
 } => {
@@ -22,9 +23,14 @@ export const useLoremIpsum = (): {
     setLI(gen);
   };
 
+  useEffect(() => {
+    generateLi();
+  } , [count, units]);
+
   return{
     loremIpsum: LI,
     generateLoremIpsum: generateLi,
+    count,
     setCount,
     setUnits,
   };

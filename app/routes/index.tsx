@@ -12,6 +12,7 @@ import sqlIcon from "~/assets/image/icon/Sql.png";
 import xmlIcon from "~/assets/image/icon/Xml.png";
 import hashIcon from "~/assets/image/icon/Hash.png";
 import uuidIcon from "~/assets/image/icon/Uuid.png";
+import checkSumIcon from "~/assets/image/icon/CheckSum.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -58,6 +59,10 @@ export default function Index(): React.ReactElement {
 
       <Grid>
         <AppCard name="UUID" icon={uuidIcon} url="uuid"/>
+      </Grid>
+
+      <Grid>
+        <AppCard name="CheckSum" icon={checkSumIcon} url="checksum"/>
       </Grid>
 
       </Grid.Container>

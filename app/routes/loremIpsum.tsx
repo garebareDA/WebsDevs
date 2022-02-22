@@ -44,7 +44,7 @@ export default function Index(): React.ReactElement {
           <Input type={"number"} min={1} value={count.toString()} onChange={
             (e) => {
               const int = parseInt(e.target.value);
-              if (0 < int)
+              if (0 < int && int >= 1000)
                 setCount(int);
             }
           }></Input>

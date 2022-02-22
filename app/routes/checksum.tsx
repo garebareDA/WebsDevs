@@ -48,7 +48,6 @@ export default function Index(): React.ReactElement {
                 setSecondFile(text);
               }
             });
-
           }}></FileUploader>
         </Row>
 

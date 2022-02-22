@@ -35,9 +35,7 @@ export default function Index(): React.ReactElement {
             </Radio>
           </Radio.Group>
         </Row>
-
         <Spacer />
-
         <Row gap={1} align={"flex-start"}>
           <Text>Length</Text>
           <Spacer />

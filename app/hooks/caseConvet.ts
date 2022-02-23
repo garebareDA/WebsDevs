@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useEffect, useState} from "react";
 import {
   sentenceCase,
   camelCase,
@@ -11,16 +11,21 @@ import {titleCase} from "title-case";
 import { lowerCase } from "lower-case";
 import { upperCase } from "upper-case";
 
-type Cases = 'sentence' | "camel" | "pascal" | "snake" | "constant" | "param" | "title" | "lower" | "upper";
+export type Cases = 'sentence' | "camel" | "pascal" | "snake" | "constant" | "param" | "title" | "lower" | "upper" | "original";
 
 export const useCaseConvert = (): {
   originText:string,
   convertText:string,
   setOriginText: (text: string) => void,
-  convert: (cases: Cases) => void,
+  setCase: (cases: Cases) => void,
 } => {
   const [originText, setOriginText] = useState("");
   const [convertText, setConvertText] = useState("");
+  const [cases, setCase] = useState<Cases>("original");
+
+  useEffect(() => {
+    convert(cases);
+  }, [cases, originText]);
 
   const convert = (caseType: Cases) => {
     switch (caseType) {
@@ -51,6 +56,9 @@ export const useCaseConvert = (): {
       case "upper":
         setConvertText(upperCase(originText));
         break;
+        case "original":
+        setConvertText(originText);
+        break;
       default:
         break;
     }
@@ -60,6 +68,6 @@ export const useCaseConvert = (): {
     originText,
     convertText,
     setOriginText,
-    convert,
+    setCase,
   };
 };

@@ -13,6 +13,7 @@ import xmlIcon from "~/assets/image/icon/Xml.png";
 import hashIcon from "~/assets/image/icon/Hash.png";
 import uuidIcon from "~/assets/image/icon/Uuid.png";
 import checkSumIcon from "~/assets/image/icon/CheckSum.png";
+import textIcon from "~/assets/image/icon/Text.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -63,6 +64,10 @@ export default function Index(): React.ReactElement {
 
       <Grid>
         <AppCard name="CheckSum" icon={checkSumIcon} url="checksum"/>
+      </Grid>
+
+      <Grid>
+        <AppCard name="Case Converter" icon={textIcon} url="text"></AppCard>
       </Grid>
 
       </Grid.Container>

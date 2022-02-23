@@ -6,10 +6,10 @@ type Statistics = {
   bytes: number;
 }
 
-type Distribution = {[key:string]:number}
+type Distribution = { [key: string]: number }
 
-export const useTextInspector = ():{
-  setText: (text:string) => void;
+export const useTextInspector = (): {
+  setText: (text: string) => void;
   statistics: Statistics;
   wordsText: string;
   charactersText: string;
@@ -21,12 +21,12 @@ export const useTextInspector = ():{
     lines: 0,
     bytes: 0
   });
-  const [wordDistribution, setWordDistribution] = useState<Distribution> ({});
-  const [characterDistribution, setCharacterDistribution] = useState<Distribution> ({});
+  const [wordDistribution, setWordDistribution] = useState<Distribution>({});
+  const [characterDistribution, setCharacterDistribution] = useState<Distribution>({});
   const [wordsText, setWordsText] = useState('');
   const [charactersText, setCharactersText] = useState('');
 
-  const textStatistics = (text:string):Statistics => {
+  const textStatistics = (text: string): Statistics => {
     const lines = text.split('\n').length;
     const characters = text.length;
     const bytes = new Blob([text]).size;
@@ -43,13 +43,13 @@ export const useTextInspector = ():{
     setStatistics(statistics);
 
     const spaces = text.match(/\S+/g);
-    const words:{[key:string]:number} = {};
+    const words: { [key: string]: number } = {};
     spaces?.map(word => {
       words[word] = (words[word] || 0) + 1;
     });
     setWordDistribution(words);
 
-    const characters:{[key:string]:number} = {};
+    const characters: { [key: string]: number } = {};
     text.split('').map(character => {
       characters[character] = (characters[character] || 0) + 1;
     });
@@ -59,7 +59,9 @@ export const useTextInspector = ():{
   useEffect(() => {
     let text = '';
     Object.keys(wordDistribution).map(word => {
-      text += `${word}:${wordDistribution[word]}\n`;
+      if (word !== '\n' && word !== ' ') {
+        text += `${word}:${wordDistribution[word]}\n`;
+      }
     });
     setCharactersText(text);
   }, [characterDistribution]);
@@ -67,10 +69,12 @@ export const useTextInspector = ():{
   useEffect(() => {
     let text = '';
     Object.keys(characterDistribution).map(character => {
-      text += `${character}:${characterDistribution[character]}\n`;
+      if (character !== '\n' && character !== ' ') {
+        text += `${character}:${characterDistribution[character]}\n`;
+      }
     });
     setWordsText(text);
-  } , [wordDistribution]);
+  }, [wordDistribution]);
 
   return {
     setText,

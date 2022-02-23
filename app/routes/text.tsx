@@ -3,9 +3,11 @@ import { Container, Spacer, Textarea, Grid, Text, Row, Button, Col } from "@next
 
 import { Title } from "~/components/util/title";
 import { useTextInspector } from "~/hooks/textInscpector";
+import { useCaseConvert } from "~/hooks/caseConvet";
 
 export default function Index(): React.ReactElement {
   const { statistics, wordsText, charactersText, setText } = useTextInspector();
+  const [inpuText, setInputText] = useState("");
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container, Spacer, Textarea, Grid, Text, Radio } from "@nextui-org/react";
 
 import { Title } from "~/components/util/title";

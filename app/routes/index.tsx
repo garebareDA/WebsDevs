@@ -14,6 +14,7 @@ import hashIcon from "~/assets/image/icon/Hash.png";
 import uuidIcon from "~/assets/image/icon/Uuid.png";
 import checkSumIcon from "~/assets/image/icon/CheckSum.png";
 import textIcon from "~/assets/image/icon/Text.png";
+import regexIcon from "~/assets/image/icon/Regex.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -68,6 +69,10 @@ export default function Index(): React.ReactElement {
 
       <Grid>
         <AppCard name="Case Converter" icon={textIcon} url="text"></AppCard>
+      </Grid>
+
+      <Grid>
+        <AppCard name="Regex" icon={regexIcon} url="Regex"></AppCard>
       </Grid>
 
       </Grid.Container>

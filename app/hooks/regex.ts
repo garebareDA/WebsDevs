@@ -43,7 +43,6 @@ export const useRegex = (): {
 
         case 'split': {
           const result = input.split(regex);
-          console.log(result);
           setResult(result.toString());
           break;
         }

@@ -10,7 +10,6 @@ export default function Index(): React.ReactElement {
   const { statistics, wordsText, charactersText, setText } = useTextInspector();
   const {setOriginText, convertText, setCase } = useCaseConvert();
   useEffect(() => {
-    console.log("aaa");
     setText(convertText);
   }, [convertText]);
   return (

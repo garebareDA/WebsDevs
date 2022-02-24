@@ -9,48 +9,55 @@ export const useRegex = (): {
   setRegex: (regex: string) => void,
   result: string,
   setRegexType: (regexType: Regex) => void,
+  isError: boolean,
 } => {
   const [input, setInput] = useState<string>('');
   const [regex, setRegex] = useState<string>('');
   const [result, setResult] = useState<string>('');
+  const [isError, setIsError] = useState<boolean>(false);
   const [regexType, setRegexType] = useState<Regex>('match');
 
   useEffect(() => {
-    const re = new RegExp(regex);
-    switch (regexType) {
-      case 'test': {
-        setResult(re.test(input) ? 'true' : 'false');
-        break;
-      }
-
-      case 'exec': {
-        const exec = re.exec(input);
-        if (exec !== null) {
-          setResult(exec.toString());
+    try {
+      const re = new RegExp(regex);
+      setIsError(false);
+      switch (regexType) {
+        case 'test': {
+          setResult(re.test(input) ? 'true' : 'false');
+          break;
         }
-        break;
-      }
 
-      case 'search': {
-        const result = input.search(regex);
-        setResult(result.toString());
-        break;
-      }
+        case 'exec': {
+          const exec = re.exec(input);
+          if (exec !== null) {
+            setResult(exec.toString());
+          }
+          break;
+        }
 
-      case 'split': {
-        const result = input.split(regex);
-        setResult(result.toString());
-        break;
-      }
-
-      case 'match': {
-        const result = input.match(regex);
-        if (result !== null) {
+        case 'search': {
+          const result = input.search(regex);
           setResult(result.toString());
+          break;
+        }
+
+        case 'split': {
+          const result = input.split(regex);
+          console.log(result);
+          setResult(result.toString());
+          break;
+        }
+
+        case 'match': {
+          const result = input.match(regex);
+          if (result !== null) {
+            setResult(result.toString());
+          }
         }
       }
+    } catch (e) {
+      setIsError(true);
     }
-
   }, [input, regex, regexType]);
 
   return {
@@ -60,5 +67,6 @@ export const useRegex = (): {
     setRegex,
     result,
     setRegexType,
+    isError,
   };
 };

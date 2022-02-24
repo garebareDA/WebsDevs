@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Spacer, Input, Row, Grid, Radio } from "@nextui-org/react";
+import { Container, Spacer, Input, Grid, Radio } from "@nextui-org/react";
 import { Title } from "~/components/util/title";
 import { useRegex } from "~/hooks/regex";
 import type { Regex } from "~/hooks/regex";
 
 export default function Index(): React.ReactElement {
-  const { input, setInput, regex, setRegex, result, setRegexType } = useRegex();
+  const { input, setInput, regex, setRegex, result, setRegexType, isError } = useRegex();
   return (
     <div>
       <Container gap={1} justify="center">
@@ -45,7 +45,7 @@ export default function Index(): React.ReactElement {
           <Grid xs={12}>
             <Input onChange={(e) => {
               setRegex(e.target.value);
-            }} value={regex} labelPlaceholder="regex" width="100%" />
+            }} value={regex} labelPlaceholder="regex" width="100%" status={isError ? "error" : "default"}/>
           </Grid>
           <Grid xs={12}>
             <Input readOnly value={result} labelPlaceholder="result" width="100%" />

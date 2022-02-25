@@ -9,6 +9,7 @@ export const useTextDiff = ():{
   const [oldText, setOldText] = useState<string>("");
   const [newText, setNewText] = useState<string>("");
 
+
   return {
     oldText,
     setOldText,

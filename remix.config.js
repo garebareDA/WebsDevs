@@ -16,5 +16,22 @@ module.exports = {
     /^remark.*/,
     /^unified.*/,
     "@zip.js/zip.js",
+    "@uiw/react-markdown-preview",
+    "@uiw/react-markdown-preview/react-markdown",
+    "react-markdown",
+    "vfile",
+    "vfile-message",
+    "unist-util-stringify-position",
+    "bail",
+    "trough",
+    /mark*/,
+    /mdast*/,
+    /unist*/,
+    "space-separated-tokens",
+    /comma*/,
+    "hast-util-whitespace",
+    "property-information",
+    "decode-named-character-reference",
+    "character-entities"
   ]
 };

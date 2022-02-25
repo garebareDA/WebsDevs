@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Spacer, Textarea, Grid } from "@nextui-org/react";
 import { Title } from "~/components/util/title";
 import ReactDiffViewer from "ab-react-diff-viewer";

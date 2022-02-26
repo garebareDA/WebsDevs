@@ -32,6 +32,8 @@ module.exports = {
     "hast-util-whitespace",
     "property-information",
     "decode-named-character-reference",
-    "character-entities"
+    "character-entities",
+    "extract-colors",
+    "change-image-color",
   ]
 };

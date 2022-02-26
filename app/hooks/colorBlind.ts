@@ -16,7 +16,7 @@ export const useColorBlind = (): {
         const canvas = createCanvas(image.width, image.height);
         const ctx = canvas.getContext('2d');
         ctx.drawImage(image, 0, 0);
-        console.log(canvas.toDataURL());
+        const imageData = ctx.getImageData(0, 0, image.width, image.height);
       };
       image.src = e.target?.result as string;
     };

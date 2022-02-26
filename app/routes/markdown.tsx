@@ -14,7 +14,7 @@ export default function Index():React.ReactElement {
         <Spacer y={2} />
         <Grid.Container justify="center" gap={2}>
           <Grid xs={6}>
-            <Textarea width="100%" rows={30} maxRows={0} onChange={(e) => {
+            <Textarea labelPlaceholder="markdown" width="100%" rows={30} maxRows={0} onChange={(e) => {
               setInput(e.target.value);
             }} />
           </Grid>

@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import { simulate } from '@bjornlu/colorblind';
-import { createCanvas, loadImage } from 'canvas';
+import { createCanvas} from 'canvas';
 
 export const useColorBlind = (): {
   setFile: (file: File) => void,
+  original: string,
   protanopia: string,
+  deuteranopia: string,
+  tritanopia: string,
 } => {
   const [file, setFile] = useState<File | null>(null);
+  const [original, setOriginal] = useState<string>('');
   const [protanopia, setProtanopia] = useState<string>('');
+  const [deuteranopia, setDeuteranopia] = useState<string>('');
+  const [tritanopia, setTritanopia] = useState<string>('');
 
   useEffect(() => {
     if (file === null) return;
@@ -19,6 +25,10 @@ export const useColorBlind = (): {
         const ctx = canvas.getContext('2d');
         ctx.drawImage(image, 0, 0);
         const imageData = ctx.getImageData(0, 0, image.width, image.height);
+        const protanopiaImageData = ctx.getImageData(0, 0, image.width, image.height);
+        const tritanopiaImageData = ctx.getImageData(0, 0, image.width, image.height);
+        const deuteranopiaImageData = ctx.getImageData(0, 0, image.width, image.height);
+
         for(let y = 0; y < imageData.height; y++) {
           for(let x=0; x<imageData.width; x++) {
             const index = (y * imageData.width + x) * 4;
@@ -26,14 +36,33 @@ export const useColorBlind = (): {
             const g = imageData.data[index + 1];
             const b = imageData.data[index + 2];
 
-            const { r: r2, g: g2, b: b2 } = simulate({ r, g, b }, "protanopia");
-            imageData.data[index] = r2;
-            imageData.data[index + 1] = g2;
-            imageData.data[index + 2] = b2;
+            const p = simulate({ r, g, b }, "protanopia");
+            const t = simulate({ r, g, b }, "tritanopia");
+            const d = simulate({ r, g, b }, "deuteranopia");
+
+            protanopiaImageData.data[index] = p.r;
+            protanopiaImageData.data[index + 1] = p.g;
+            protanopiaImageData.data[index + 2] = p.b;
+
+            tritanopiaImageData.data[index] = t.r;
+            tritanopiaImageData.data[index + 1] = t.g;
+            tritanopiaImageData.data[index + 2] = t.b;
+
+            deuteranopiaImageData.data[index] = d.r;
+            deuteranopiaImageData.data[index + 1] = d.g;
+            deuteranopiaImageData.data[index + 2] = d.b;
           }
         }
-        ctx.putImageData(imageData, 0, 0);
+        setOriginal(canvas.toDataURL());
+
+        ctx.putImageData(protanopiaImageData, 0, 0);
         setProtanopia(canvas.toDataURL());
+
+        ctx.putImageData(deuteranopiaImageData, 0, 0);
+        setDeuteranopia(canvas.toDataURL());
+
+        ctx.putImageData(tritanopiaImageData, 0, 0);
+        setTritanopia(canvas.toDataURL());
       };
       image.src = e.target?.result as string;
     };
@@ -42,6 +71,9 @@ export const useColorBlind = (): {
 
   return {
     setFile,
+    original,
     protanopia,
+    deuteranopia,
+    tritanopia,
   };
 };

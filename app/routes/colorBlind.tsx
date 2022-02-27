@@ -5,7 +5,7 @@ import { FileUploader } from "react-drag-drop-files";
 import { useColorBlind } from "~/hooks/colorBlind";
 
 export default function Index(): React.ReactElement {
-  const { setFile } = useColorBlind();
+  const { setFile, protanopia } = useColorBlind();
   return (
     <div>
       <Container gap={1} justify="center">
@@ -17,6 +17,7 @@ export default function Index(): React.ReactElement {
             setFile(file);
           }}></FileUploader>
         </Row>
+        <img src={protanopia} alt="" />
 
       </Container>
     </div>

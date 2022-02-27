@@ -4,8 +4,10 @@ import { createCanvas, loadImage } from 'canvas';
 
 export const useColorBlind = (): {
   setFile: (file: File) => void,
+  protanopia: string,
 } => {
   const [file, setFile] = useState<File | null>(null);
+  const [protanopia, setProtanopia] = useState<string>('');
 
   useEffect(() => {
     if (file === null) return;
@@ -31,8 +33,7 @@ export const useColorBlind = (): {
           }
         }
         ctx.putImageData(imageData, 0, 0);
-        const url = canvas.toDataURL();
-        console.log(url);
+        setProtanopia(canvas.toDataURL());
       };
       image.src = e.target?.result as string;
     };
@@ -41,5 +42,6 @@ export const useColorBlind = (): {
 
   return {
     setFile,
+    protanopia,
   };
 };

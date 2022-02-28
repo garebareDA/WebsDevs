@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Container, Spacer, Textarea, Grid, Text, Radio } from "@nextui-org/react";
 
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import { useTextInspector } from "~/hooks/textInscpector";
 import { useCaseConvert } from "~/hooks/caseConvet";
 import type { Cases } from "~/hooks/caseConvet";
@@ -10,7 +10,6 @@ export default function Index(): React.ReactElement {
   const { statistics, wordsText, charactersText, setText } = useTextInspector();
   const {setOriginText, convertText, setCase } = useCaseConvert();
   useEffect(() => {
-    console.log("aaa");
     setText(convertText);
   }, [convertText]);
   return (

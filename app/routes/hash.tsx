@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Spacer, Input, Row } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import { useHash } from "~/hooks/hash";
-import { GenerateInput } from "~/components/generate/generateInput";
+import { GenerateInput } from "~/components/generateInput";
 
 export default function Index(): React.ReactElement {
   const { text, setText, md5Hash, sha1Hash, sha256Hash, sha512Hash } = useHash();

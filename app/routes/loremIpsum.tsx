@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Container, Spacer, Row, Textarea, Radio, Text, Input } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import { useLoremIpsum } from "~/hooks/loremIpsum";
 import { LoremUnit } from "lorem-ipsum/types/src/constants/units";
 

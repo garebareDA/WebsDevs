@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Spacer } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
-import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
+import { Title } from "~/components/title";
+import { TextAreaEncodeDecode } from "~/components/decodeEncode";
 import { useJsonFormatter } from "~/hooks/jsonFormatter";
 
 export default function Index(): React.ReactElement {

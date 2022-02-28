@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Spacer } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import { useBase64 } from "~/hooks/base64";
-import { TextAreaEncodeDecode } from "~/components/decodeEncode/decodeEncode";
+import { TextAreaEncodeDecode } from "~/components/decodeEncode";
 
 export default function Index(): React.ReactElement {
   const { decode, setDecode, encode, setEncode, decodeError, encodeError } = useBase64();

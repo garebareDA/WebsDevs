@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Spacer, Grid, Input } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
-import { NumberInput } from "~/components/baseNumber/numberInput";
+import { Title } from "~/components/title";
+import { NumberInput } from "~/components/numberInput";
 export default function BaseNumber(): React.ReactElement {
   const [number, setNumber] = useState<number | null>(0);
   const [custom, setCustom] = useState<number>(8);

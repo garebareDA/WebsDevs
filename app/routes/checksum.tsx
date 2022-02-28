@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Spacer, Text, Input, Radio } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import { FileUploader } from "react-drag-drop-files";
 import { useChecksum } from "~/hooks/checksum";
 import type { CheckSumType } from "~/hooks/checksum";

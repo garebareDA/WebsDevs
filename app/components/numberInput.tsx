@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "@nextui-org/react";
 
-import { useNumberBase } from "../../hooks/baseNumber";
+import { useNumberBase } from "../hooks/baseNumber";
 
 type NumberProps = {
   name: string;

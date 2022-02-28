@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container,Spacer } from '@nextui-org/react';
 import { useGzip } from '~/hooks/zip';
-import { Title } from '~/components/util/title';
-import { TextAreaEncodeDecode } from '~/components/decodeEncode/decodeEncode';
+import { Title } from '~/components/title';
+import { TextAreaEncodeDecode } from '~/components/decodeEncode';
 
 export default function Index():React.ReactElement {
   const {decode, setDecode, encode, setEncode, encodeError, decodeError} = useGzip();

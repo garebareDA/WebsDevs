@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Spacer, Row, Card, Grid, Text } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import { FileUploader } from "react-drag-drop-files";
 import { useColorBlind } from "~/hooks/colorBlind";
 

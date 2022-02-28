@@ -17,7 +17,7 @@ import textIcon from "~/assets/image/icon/Text.png";
 import regexIcon from "~/assets/image/icon/Regex.png";
 import diffIcon from "~/assets/image/icon/Diff.png";
 import markDownIcon from "~/assets/image/icon/Markdown.png";
-import { AppCard } from "~/components/util/appCard";
+import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
   return (

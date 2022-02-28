@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Spacer, Row, Button } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
-import { GenerateInput } from "~/components/generate/generateInput";
+import { Title } from "~/components/title";
+import { GenerateInput } from "~/components/generateInput";
 import { useUuid } from "~/hooks/uuid";
 
 

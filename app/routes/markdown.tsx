@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Container, Spacer, Grid, Textarea } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import ReactMarkdown from "react-markdown";
 
 export default function Index():React.ReactElement {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Spacer, Input, Grid, Radio } from "@nextui-org/react";
-import { Title } from "~/components/util/title";
+import { Title } from "~/components/title";
 import { useRegex } from "~/hooks/regex";
 import type { Regex } from "~/hooks/regex";
 

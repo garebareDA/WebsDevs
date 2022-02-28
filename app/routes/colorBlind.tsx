@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Spacer, Row, Card, Grid, Text } from "@nextui-org/react";
+import { Container, Spacer, Row, Grid } from "@nextui-org/react";
 import { Title } from "~/components/title";
 import { ColorBlindCard } from "~/components/colorBlindCard";
 import { FileUploader } from "react-drag-drop-files";

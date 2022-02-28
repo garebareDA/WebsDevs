@@ -17,6 +17,7 @@ import textIcon from "~/assets/image/icon/Text.png";
 import regexIcon from "~/assets/image/icon/Regex.png";
 import diffIcon from "~/assets/image/icon/Diff.png";
 import markDownIcon from "~/assets/image/icon/Markdown.png";
+import colorBlindIcon from "~/assets/image/icon/Eye.png";
 import { AppCard } from "~/components/appCard";
 
 export default function Index(): React.ReactElement {
@@ -83,6 +84,10 @@ export default function Index(): React.ReactElement {
 
       <Grid>
         <AppCard name="markdown preview" icon={markDownIcon} url="markdown"></AppCard>
+      </Grid>
+
+      <Grid>
+        <AppCard name="colorBlindSimulator" icon={colorBlindIcon} url="colorblind"></AppCard>
       </Grid>
 
       </Grid.Container>

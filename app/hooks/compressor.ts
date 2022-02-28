@@ -31,6 +31,7 @@ export const useCompressor = (): {
       });
     } catch (error) {
       setError(true);
+      alert(error);
     }
   }, [file]);
 

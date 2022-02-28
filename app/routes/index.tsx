@@ -83,11 +83,11 @@ export default function Index(): React.ReactElement {
       </Grid>
 
       <Grid>
-        <AppCard name="markdown preview" icon={markDownIcon} url="markdown"></AppCard>
+        <AppCard name="Markdown preview" icon={markDownIcon} url="markdown"></AppCard>
       </Grid>
 
       <Grid>
-        <AppCard name="colorBlindSimulator" icon={colorBlindIcon} url="colorblind"></AppCard>
+        <AppCard name="Color Blind Simulator" icon={colorBlindIcon} url="colorblind"></AppCard>
       </Grid>
 
       </Grid.Container>

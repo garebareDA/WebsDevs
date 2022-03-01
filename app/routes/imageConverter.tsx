@@ -3,6 +3,9 @@ import { Container, Spacer, Row, Text } from "@nextui-org/react";
 import { Title } from "~/components/title";
 import { FileUploader } from "react-drag-drop-files";
 import { GridRadioGroup } from "~/components/radioGroup";
+import { useImageConverter } from "~/hooks/imageConverter";
+import type { ImageType } from "~/hooks/imageConverter";
+import { Image } from "canvas";
 
 
 export default function Index(): React.ReactElement {
@@ -11,6 +14,8 @@ export default function Index(): React.ReactElement {
     "png",
     "webp",
   ];
+
+  const { setFile, setImageType } = useImageConverter();
 
   return (
     <div>
@@ -21,12 +26,13 @@ export default function Index(): React.ReactElement {
         <Row>
           <Text>Type</Text>
           <GridRadioGroup values={value} size="sm" row onChange={(e) => {
-            console.log(e);
-          }}/>
+            if (typeof e === "string")
+              setImageType(e as ImageType);
+          }} />
         </Row>
-        <FileUploader handleChange={(file:File) => {
-          console.log(file);
-        }}/>
+        <FileUploader handleChange={(file: File) => {
+          setFile(file);
+        }} />
       </Container>
     </div>
   );

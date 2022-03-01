@@ -1,12 +1,20 @@
 import React, { useState } from "react";
-import { Container, Row, Spacer, Text, Input, Radio } from "@nextui-org/react";
+import { Container, Row, Spacer, Text, Input,} from "@nextui-org/react";
 import { Title } from "~/components/title";
 import { FileUploader } from "react-drag-drop-files";
+import { GridRadioGroup } from "~/components/radioGroup";
 import { useChecksum } from "~/hooks/checksum";
 import type { CheckSumType } from "~/hooks/checksum";
 
 
 export default function Index(): React.ReactElement {
+  const vlaue = [
+    "md5",
+    "sha1",
+    "sha256",
+    "sha512",
+  ];
+
   const { setCheckSumType, setFirstFile, setSecondFile, firstOutput, secondOutput, checkSum } = useChecksum();
   const [isNext, setIsNext] = useState(true);
   return (
@@ -18,23 +26,10 @@ export default function Index(): React.ReactElement {
         <Row gap={1} align={"flex-start"}>
           <Text>Algorithm</Text>
           <Spacer />
-          <Radio.Group row size={"sm"} value={"md5"} onChange={(e) => {
-            if (typeof e === "string")
+          <GridRadioGroup values={vlaue} size="sm" row onChange={(e) => {
+            if(typeof e === "string")
               setCheckSumType(e as CheckSumType);
-          }}>
-            <Radio value={"md5"}>
-              MD5
-            </Radio>
-            <Radio value={"sha1"}>
-              SHA1
-            </Radio>
-            <Radio value={"sha256"}>
-              SHA256
-            </Radio>
-            <Radio value={"sha512"}>
-              SHA512
-            </Radio>
-          </Radio.Group>
+          } }/>
         </Row>
 
         <Spacer />

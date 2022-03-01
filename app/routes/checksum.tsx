@@ -8,7 +8,7 @@ import type { CheckSumType } from "~/hooks/checksum";
 
 
 export default function Index(): React.ReactElement {
-  const vlaue = [
+  const value:CheckSumType[] = [
     "md5",
     "sha1",
     "sha256",
@@ -26,7 +26,7 @@ export default function Index(): React.ReactElement {
         <Row gap={1} align={"flex-start"}>
           <Text>Algorithm</Text>
           <Spacer />
-          <GridRadioGroup values={vlaue} size="sm" row onChange={(e) => {
+          <GridRadioGroup values={value} size="sm" row onChange={(e) => {
             if(typeof e === "string")
               setCheckSumType(e as CheckSumType);
           } }/>

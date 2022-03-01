@@ -6,7 +6,7 @@ import { useLoremIpsum } from "~/hooks/loremIpsum";
 import { LoremUnit } from "lorem-ipsum/types/src/constants/units";
 
 export default function Index(): React.ReactElement {
-  const value = [
+  const value: LoremUnit[] = [
     "paragraphs",
     "sentences",
     "words",

@@ -5,17 +5,14 @@ import { FileUploader } from "react-drag-drop-files";
 import { GridRadioGroup } from "~/components/radioGroup";
 import { useImageConverter } from "~/hooks/imageConverter";
 import type { ImageType } from "~/hooks/imageConverter";
-import { Image } from "canvas";
-
 
 export default function Index(): React.ReactElement {
   const value = [
     "jpg",
     "png",
-    "webp",
   ];
 
-  const { setFile, setImageType } = useImageConverter();
+  const { setFile, setImageType, converted } = useImageConverter();
 
   return (
     <div>

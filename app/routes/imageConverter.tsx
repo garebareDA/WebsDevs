@@ -8,8 +8,8 @@ import type { ImageType } from "~/hooks/imageConverter";
 import { Converted } from "~/components/converted";
 
 export default function Index(): React.ReactElement {
-  const value = [
-    "jpg",
+  const value:ImageType[] = [
+    "jpeg",
     "png",
   ];
 
@@ -36,8 +36,7 @@ export default function Index(): React.ReactElement {
         <Spacer y={2} />
         <Grid.Container gap={2} justify="flex-start">
           {converted.map((result, index) => {
-            console.log(result.url);
-            const name = result.file.name.split(".")[0] + "." + result.file.type;
+            const name = result.file.name.split(/\.(?=[^.]+$)/)[0] + "." + (result.type as string);
             return (
               <Converted key={index} image={result.url} name={name} />
             );

@@ -6,6 +6,7 @@ export type ImageType = "png" | "jpeg";
 type ConvertedFile = {
   file: File,
   url: string,
+  type: ImageType,
 }
 
 export const useImageConverter = (): {
@@ -26,16 +27,15 @@ export const useImageConverter = (): {
         const canvas = createCanvas(img.width, img.height);
         const ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0);
-
         if (imageType === "png") {
           const dataURL = canvas.toDataURL(`image/png`);
-          setConverted([...converted, { file, url: dataURL }]);
+          setConverted([...converted, { file, url: dataURL, type: "png" }]);
           return;
         }
 
         if (imageType === "jpeg") {
           const dataURL = canvas.toDataURL(`image/jpeg`);
-          setConverted([...converted, { file, url: dataURL }]);
+          setConverted([...converted, { file, url: dataURL, type: "jpeg" }]);
           return;
         }
       };

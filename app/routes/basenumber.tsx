@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { Container, Row, Spacer, Grid, Input } from "@nextui-org/react";
 import { Title } from "~/components/title";
-import { NumberInput } from "~/components/numberInput";
+import { BaseNumberInput, NumberInput } from "~/components/numberInput";
+import type { BaseNumber } from "~/components/numberInput";
+
 export default function BaseNumber(): React.ReactElement {
+  const baseNumberList: BaseNumber[] = [
+    { name: "Binary", value: 2 },
+    { name: "Octal", value: 8 },
+    { name: "Decimal", value: 10 },
+    { name: "Duodecimal", value: 12 },
+    { name: "Hexadecimal", value: 16 },
+  ];
+
   const [number, setNumber] = useState<number | null>(0);
   const [custom, setCustom] = useState<number>(8);
 
@@ -11,57 +21,7 @@ export default function BaseNumber(): React.ReactElement {
       <Container gap={1} justify="center">
         <Spacer y={1} />
         <Title title="Base Number"></Title>
-
-        <Spacer y={2} />
-        <Row justify="center">
-          <NumberInput
-            base={2}
-            name="Binary"
-            globalNumber={number}
-            setGlobalNumber={setNumber}
-          />
-        </Row>
-
-        <Spacer y={2} />
-        <Row justify="center">
-          <NumberInput
-            base={8}
-            name="Octal"
-            globalNumber={number}
-            setGlobalNumber={setNumber}
-          />
-        </Row>
-
-        <Spacer y={2} />
-        <Row justify="center">
-          <NumberInput
-            base={10}
-            name="Decimal"
-            globalNumber={number}
-            setGlobalNumber={setNumber}
-          />
-        </Row>
-
-        <Spacer y={2} />
-        <Row justify="center">
-          <NumberInput
-            base={12}
-            name="Duodecimal"
-            globalNumber={number}
-            setGlobalNumber={setNumber}
-          />
-        </Row>
-
-        <Spacer y={2} />
-        <Row justify="center">
-          <NumberInput
-            base={16}
-            name="Hexadecimal"
-            globalNumber={number}
-            setGlobalNumber={setNumber}
-          />
-        </Row>
-
+        <BaseNumberInput baseNumberList={baseNumberList} globalNumber={number} setGlobalNumber={setNumber}/>
         <Spacer y={2} />
         <Row justify="center">
           <Grid.Container justify="center" gap={1}>
@@ -73,7 +33,6 @@ export default function BaseNumber(): React.ReactElement {
                 value={custom.toString()}
                 onChange={(e) => {
                   const value = parseInt(e.target.value);
-                  console.log(value);
                   if (
                     ((value >= 2 && value <= 36) || Number.isNaN(value)) &&
                     value !== custom

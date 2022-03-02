@@ -1,10 +1,17 @@
 import React, { useEffect } from "react";
-import { Container, Spacer, Row, Textarea, Radio, Text, Input } from "@nextui-org/react";
+import { Container, Spacer, Row, Textarea, Text, Input } from "@nextui-org/react";
 import { Title } from "~/components/title";
+import { GridRadioGroup } from "~/components/radioGroup";
 import { useLoremIpsum } from "~/hooks/loremIpsum";
 import { LoremUnit } from "lorem-ipsum/types/src/constants/units";
 
 export default function Index(): React.ReactElement {
+  const value: LoremUnit[] = [
+    "paragraphs",
+    "sentences",
+    "words",
+  ];
+
   const { loremIpsum, generateLoremIpsum, setCount, count, setUnits } = useLoremIpsum();
   useEffect(() => {
     generateLoremIpsum();
@@ -19,21 +26,10 @@ export default function Index(): React.ReactElement {
         <Row gap={1} align={"flex-start"}>
           <Text>Type</Text>
           <Spacer />
-          <Radio.Group value={"paragraphs"} row size={"sm"} onChange={(e) => {
-            if (typeof e === "string") {
+          <GridRadioGroup values={value} size="sm" row onChange={(e) => {
+            if (typeof e === "string")
               setUnits(e as LoremUnit);
-            };
-          }}>
-            <Radio value={"paragraphs"}>
-              Paragraphs
-            </Radio>
-            <Radio value={"sentences"}>
-              Sentences
-            </Radio>
-            <Radio value={"words"}>
-              Words
-            </Radio>
-          </Radio.Group>
+          } }/>
         </Row>
         <Spacer />
         <Row gap={1} align={"flex-start"}>

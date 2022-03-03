@@ -69,7 +69,7 @@ export default function Index(): React.ReactElement {
 
   const graphics: App[] = [
     { name: "Color Blind Simulator", icon: colorBlindIcon, path: "colorBlind" },
-    { name: "Image Compressor", icon: imageIcon, path: "image" },
+    { name: "Image Compressor", icon: imageIcon, path: "imageCompressor" },
     { name: "Image Converter", icon: imageConvertIcon, path: "imageConverter" },
   ];
 

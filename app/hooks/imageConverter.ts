@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { createCanvas } from "canvas";
 
 export type ImageType = "png" | "jpeg";
 
@@ -17,15 +16,19 @@ export const useImageConverter = (): {
   const [file, setFile] = useState<File | null>(null);
   const [converted, setConverted] = useState<ConvertedFile[]>([]);
   const [imageType, setImageType] = useState<ImageType>("jpeg");
-
   useEffect(() => {
     if (file === null) return;
     const reader = new FileReader();
     reader.onload = (e) => {
       const img = new Image();
       img.onload = () => {
-        const canvas = createCanvas(img.width, img.height);
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
         const ctx = canvas.getContext("2d");
+        if (ctx === null) {
+          return;
+        }
         ctx.drawImage(img, 0, 0);
         if (imageType === "png") {
           const dataURL = canvas.toDataURL(`image/png`);

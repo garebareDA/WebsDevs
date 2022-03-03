@@ -16,7 +16,6 @@ export const useImageConverter = (): {
   const [file, setFile] = useState<File | null>(null);
   const [converted, setConverted] = useState<ConvertedFile[]>([]);
   const [imageType, setImageType] = useState<ImageType>("jpeg");
-
   useEffect(() => {
     if (file === null) return;
     const reader = new FileReader();

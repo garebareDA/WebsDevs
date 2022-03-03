@@ -7,14 +7,12 @@ export const useColorBlind = (): {
   protanopia: string,
   deuteranopia: string,
   tritanopia: string,
-  error: boolean,
 } => {
   const [file, setFile] = useState<File | null>(null);
   const [original, setOriginal] = useState<string>('');
   const [protanopia, setProtanopia] = useState<string>('');
   const [deuteranopia, setDeuteranopia] = useState<string>('');
   const [tritanopia, setTritanopia] = useState<string>('');
-  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     if (file === null) return;
@@ -27,7 +25,6 @@ export const useColorBlind = (): {
         canvas.height = image.height;
         const ctx = canvas.getContext('2d');
         if (ctx === null) {
-          setError(true);
           return;
         }
         ctx.drawImage(image, 0, 0);
@@ -82,6 +79,5 @@ export const useColorBlind = (): {
     protanopia,
     deuteranopia,
     tritanopia,
-    error
   };
 };

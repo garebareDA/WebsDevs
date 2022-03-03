@@ -19,6 +19,7 @@ export const useConvertJsonYaml = (): {
   const convertJsonToYaml = (json: string): void => {
     setJson(json);
     if (json === "") {
+      setYaml(json);
       setJsonConvertError(false);
       return;
     }
@@ -36,6 +37,7 @@ export const useConvertJsonYaml = (): {
   const convertYamlToJson = (yaml: string): void => {
     setYaml(yaml);
     if (yaml === "") {
+      setJson(yaml);
       setYamlConvertError(false);
       return;
     }

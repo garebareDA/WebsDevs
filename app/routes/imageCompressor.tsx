@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Spacer, Row, Grid } from "@nextui-org/react";
 import { Title } from "~/components/title";
 import { useCompressor } from "~/hooks/compressor";
-import { FileUploader } from "react-drag-drop-files";
+import { FileUploader } from "~/components/dropZone";
 import { Compressed } from '~/components/compressed';
 
 export default function Index(): React.ReactElement {
@@ -14,9 +14,7 @@ export default function Index(): React.ReactElement {
         <Title title="Image Compressor"></Title>
         <Spacer y={2} />
         <Row justify="center">
-          <FileUploader handleChange={(file: File) => {
-            setFile(file);
-          }} />
+        <FileUploader setFile={setFile} fileType={"png, jpg"} error={error}/>
         </Row>
         <Spacer y={2} />
         <Grid.Container gap={2} justify="flex-start">

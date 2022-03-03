@@ -102,7 +102,7 @@ export default function Index(): React.ReactElement {
         </Grid>
 
         <Grid>
-          <AppCard name="Image Convert" icon={imageConvertIcon} url={"imageConvert"}></AppCard>
+          <AppCard name="Image Converter" icon={imageConvertIcon} url={"imageConverter"}></AppCard>
         </Grid>
 
       </Grid.Container>

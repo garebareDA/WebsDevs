@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { createCanvas } from "canvas";
 
 export type ImageType = "png" | "jpeg";
 
@@ -24,8 +23,13 @@ export const useImageConverter = (): {
     reader.onload = (e) => {
       const img = new Image();
       img.onload = () => {
-        const canvas = createCanvas(img.width, img.height);
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
         const ctx = canvas.getContext("2d");
+        if (ctx === null) {
+          return;
+        }
         ctx.drawImage(img, 0, 0);
         if (imageType === "png") {
           const dataURL = canvas.toDataURL(`image/png`);

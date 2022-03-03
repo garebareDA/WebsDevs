@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { simulate } from '@bjornlu/colorblind';
-import { createCanvas} from 'canvas';
 
 export const useColorBlind = (): {
   setFile: (file: File) => void,
@@ -8,12 +7,14 @@ export const useColorBlind = (): {
   protanopia: string,
   deuteranopia: string,
   tritanopia: string,
+  error: boolean,
 } => {
   const [file, setFile] = useState<File | null>(null);
   const [original, setOriginal] = useState<string>('');
   const [protanopia, setProtanopia] = useState<string>('');
   const [deuteranopia, setDeuteranopia] = useState<string>('');
   const [tritanopia, setTritanopia] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     if (file === null) return;
@@ -21,8 +22,14 @@ export const useColorBlind = (): {
     const reader = new FileReader();
     reader.onload = (e) => {
       image.onload = () => {
-        const canvas = createCanvas(image.width, image.height);
+        const canvas = document.createElement('canvas');
+        canvas.width = image.width;
+        canvas.height = image.height;
         const ctx = canvas.getContext('2d');
+        if (ctx === null) {
+          setError(true);
+          return;
+        }
         ctx.drawImage(image, 0, 0);
         const imageData = ctx.getImageData(0, 0, image.width, image.height);
         const protanopiaImageData = ctx.getImageData(0, 0, image.width, image.height);
@@ -75,5 +82,6 @@ export const useColorBlind = (): {
     protanopia,
     deuteranopia,
     tritanopia,
+    error
   };
 };

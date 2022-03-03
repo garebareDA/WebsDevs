@@ -14,7 +14,7 @@ export default function Index(): React.ReactElement {
         <Title title="Image Compressor"></Title>
         <Spacer y={2} />
         <Row justify="center">
-        <FileUploader setFile={setFile} fileType={"png, jpg"} />
+        <FileUploader setFile={setFile} fileType={"png, jpg"} error={error}/>
         </Row>
         <Spacer y={2} />
         <Grid.Container gap={2} justify="flex-start">

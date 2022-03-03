@@ -11,7 +11,7 @@ import type { MetaFunction } from "remix";
 import { NextUIProvider } from "@nextui-org/react";
 
 export const meta: MetaFunction = () => {
-  return { title: "WebsDevs" };
+  return { title: "DotToys" };
 };
 
 export default function App() {

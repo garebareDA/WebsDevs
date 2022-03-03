@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Spacer, Row, Grid } from "@nextui-org/react";
 import { Title } from "~/components/title";
 import { ColorBlindCard } from "~/components/colorBlindCard";
-import { FileUploader } from "react-drag-drop-files";
+import { FileUploader } from "~/components/dropZone";
 import { useColorBlind } from "~/hooks/colorBlind";
 
 export default function Index(): React.ReactElement {
@@ -14,9 +14,7 @@ export default function Index(): React.ReactElement {
         <Title title="Color Blindness Simulator"></Title>
         <Spacer y={1} />
         <Row justify="center">
-          <FileUploader handleChange={(file: File) => {
-            setFile(file);
-          }}></FileUploader>
+          <FileUploader setFile={setFile} fileType={"png, jpg"} />
         </Row>
         <Spacer y={2} />
         <Grid.Container gap={1} justify="center">

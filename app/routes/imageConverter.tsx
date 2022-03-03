@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Spacer, Row, Text, Grid } from "@nextui-org/react";
 import { Title } from "~/components/title";
-import { FileUploader } from "react-drag-drop-files";
+import { FileUploader } from "~/components/dropZone";
 import { GridRadioGroup } from "~/components/radioGroup";
 import { useImageConverter } from "~/hooks/imageConverter";
 import type { ImageType } from "~/hooks/imageConverter";
@@ -29,9 +29,7 @@ export default function Index(): React.ReactElement {
           }} />
         </Row>
         <Row justify="center">
-          <FileUploader handleChange={(file: File) => {
-            setFile(file);
-          }} />
+        <FileUploader setFile={setFile} fileType={"png, jpg"} />
         </Row>
         <Spacer y={2} />
         <Grid.Container gap={2} justify="flex-start">

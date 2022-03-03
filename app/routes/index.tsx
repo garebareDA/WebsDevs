@@ -36,7 +36,7 @@ type AppList = {
 
 export default function Index(): React.ReactElement {
   const converters: App[] = [
-    { name: "Number Base", icon: baseNumberIcon, path: "numberBase" },
+    { name: "Number Base", icon: baseNumberIcon, path: "basenumber" },
     { name: "JSON<=>YAML", icon: convertIcon, path: "convert" }
   ];
 
@@ -48,15 +48,15 @@ export default function Index(): React.ReactElement {
   ];
 
   const formatters: App[] = [
-    { name: "JSON Formatter", icon: jsonIcon, path: "json" },
-    { name: "SQL Formatter", icon: sqlIcon, path: "sql" },
-    { name: "XML Formatter", icon: xmlIcon, path: "xml" },
+    { name: "JSON Formatter", icon: jsonIcon, path: "jsonFormatter" },
+    { name: "SQL Formatter", icon: sqlIcon, path: "sqlFormatter" },
+    { name: "XML Formatter", icon: xmlIcon, path: "xmlFormatter" },
   ];
 
   const generators: App[] = [
     { name: "Hash", icon: hashIcon, path: "hash" },
     { name: "UUID", icon: uuidIcon, path: "uuid" },
-    { name: "Lorem Ipsum", icon: liIcon, path: "li" },
+    { name: "Lorem Ipsum", icon: liIcon, path: "loremIpsum" },
     { name: "CheckSum", icon: checkSumIcon, path: "checkSum" },
   ];
 

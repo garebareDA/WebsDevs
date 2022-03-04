@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Row, Container, Spacer, Text } from "@nextui-org/react";
+import { Grid, Row, Container, Spacer, Text, Link } from "@nextui-org/react";
 
 import baseNumberIcon from "~/assets/image/icon/NumberBase.png";
 import convertIcon from "~/assets/image/icon/Convert.png";
@@ -21,6 +21,7 @@ import markDownIcon from "~/assets/image/icon/Markdown.png";
 import colorBlindIcon from "~/assets/image/icon/Eye.png";
 import imageIcon from "~/assets/image/icon/Image.png";
 import imageConvertIcon from "~/assets/image/icon/ImageConverter.png";
+import dotIcon from "~/assets/image/icon.png";
 import { AppCard } from "~/components/appCard";
 
 type App = {
@@ -85,7 +86,19 @@ export default function Index(): React.ReactElement {
 
   return (
     <Container justify="center" style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <Text size={32}>DotToys</Text>
+      <Row align="center" gap={1}>
+        <img src={dotIcon} style={{
+          maxHeight: "40px",
+          maxWidth: "40px",
+          borderRadius: "50%",
+        }} />
+        <Text size={32}>DotToys</Text>
+        <Text size={16}>
+          <Link color={"primary"} href="https://github.com/garebareDA/WebsDevs" target="_blank" underline>
+            GitHub
+          </Link>
+        </Text>
+      </Row>
       <hr />
       <Spacer y={2} />
       <Grid.Container gap={3}>

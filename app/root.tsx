@@ -7,11 +7,16 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
-import type { MetaFunction } from "remix";
+import type { MetaFunction, LinksFunction } from "remix";
 import { NextUIProvider } from "@nextui-org/react";
+import icon from "./assets/image/icon.png";
 
 export const meta: MetaFunction = () => {
   return { title: "DotToys" };
+};
+
+export const links: LinksFunction = () => {
+  return [{ rel: "shortcut icon", href: icon }];
 };
 
 export default function App() {
@@ -20,6 +25,10 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta property="og:title" content="DotToys" />
+        <meta property="og:description" content="DotToys" />
+        <meta property="og:url" content="https://dottoys.garebare.net/thumbnail.png" />
+        <meta name="twitter:card" content="summary_large_image" />
         <Meta />
         <Links />
       </head>

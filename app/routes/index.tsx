@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Row, Container, Spacer, Text } from "@nextui-org/react";
+import { Grid, Row, Container, Spacer, Text, Link } from "@nextui-org/react";
 
 import baseNumberIcon from "~/assets/image/icon/NumberBase.png";
 import convertIcon from "~/assets/image/icon/Convert.png";
@@ -93,6 +93,11 @@ export default function Index(): React.ReactElement {
           borderRadius: "50%",
         }} />
         <Text size={32}>DotToys</Text>
+        <Text size={16}>
+          <Link color={"primary"} href="https://github.com/garebareDA/WebsDevs" target="_blank" underline>
+            GitHub
+          </Link>
+        </Text>
       </Row>
       <hr />
       <Spacer y={2} />

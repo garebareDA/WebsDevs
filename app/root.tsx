@@ -27,7 +27,8 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta property="og:title" content="DotToys" />
         <meta property="og:description" content="DotToys" />
-        <meta property="og:url" content="https://dottoys.garebare.net/thumbnail.png" />
+        <meta property="og:url" content="https://dottoys.garebare.net" />
+        <meta property="og:image" content="https://dottoys.garebare.net/thumbnail.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <Meta />
         <Links />

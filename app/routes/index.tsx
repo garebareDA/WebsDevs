@@ -21,6 +21,7 @@ import markDownIcon from "~/assets/image/icon/Markdown.png";
 import colorBlindIcon from "~/assets/image/icon/Eye.png";
 import imageIcon from "~/assets/image/icon/Image.png";
 import imageConvertIcon from "~/assets/image/icon/ImageConverter.png";
+import dotIcon from "~/assets/image/icon.png";
 import { AppCard } from "~/components/appCard";
 
 type App = {
@@ -85,7 +86,14 @@ export default function Index(): React.ReactElement {
 
   return (
     <Container justify="center" style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <Text size={32}>DotToys</Text>
+      <Row align="center" gap={1}>
+        <img src={dotIcon} style={{
+          maxHeight: "40px",
+          maxWidth: "40px",
+          borderRadius: "50%",
+        }} />
+        <Text size={32}>DotToys</Text>
+      </Row>
       <hr />
       <Spacer y={2} />
       <Grid.Container gap={3}>

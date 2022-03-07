@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Spacer, Text, Input,} from "@nextui-org/react";
 import { Title } from "~/components/title";
-import { FileUploader } from "react-drag-drop-files";
+import { FileUploader } from "~/components/dropZone";
 import { GridRadioGroup } from "~/components/radioGroup";
 import { useChecksum } from "~/hooks/checksum";
 import type { CheckSumType } from "~/hooks/checksum";
@@ -34,7 +34,7 @@ export default function Index(): React.ReactElement {
 
         <Spacer />
         <Row justify="center">
-          <FileUploader handleChange={(file: File) => {
+          <FileUploader setFile={(file: File) => {
             setIsNext(!isNext);
             file.text().then((text) => {
               if (isNext) {
@@ -43,7 +43,10 @@ export default function Index(): React.ReactElement {
                 setSecondFile(text);
               }
             });
-          }}></FileUploader>
+          }}
+          fileType={[]}
+          error={false}
+          ></FileUploader>
         </Row>
 
         <Spacer y={2} />

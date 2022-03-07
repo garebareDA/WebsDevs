@@ -29,7 +29,7 @@ export default function Index(): React.ReactElement {
           }} />
         </Row>
         <Row justify="center">
-        <FileUploader setFile={setFile} fileType={"png, jpg"} error={false}/>
+        <FileUploader setFile={setFile} fileType={["png", "jpeg"]} error={false}/>
         </Row>
         <Spacer y={2} />
         <Grid.Container gap={2} justify="flex-start">

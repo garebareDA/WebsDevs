@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, Spacer, Textarea, Grid, Text, Radio } from "@nextui-org/react";
+import { Container, Spacer, Textarea, Grid, Text } from "@nextui-org/react";
 import { GridRadioGroup } from "~/components/radioGroup";
 import { Title } from "~/components/title";
 import { useTextInspector } from "~/hooks/textInscpector";

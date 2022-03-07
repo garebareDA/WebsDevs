@@ -4,7 +4,7 @@ import Dropzone from "react-dropzone";
 
 type Props = {
   setFile: (file: File) => void;
-  fileType: string;
+  fileType: string[];
   error: boolean;
 }
 
@@ -13,14 +13,21 @@ export const FileUploader: React.VFC<Props> = ({ setFile, fileType, error }: Pro
   return (
     <Dropzone onDrop={(acceptedFiles) => {
       acceptedFiles.forEach(file => {
-        const fileType = file.type;
-        if (fileType === "image/jpeg" || fileType === "image/png") {
+        if (fileType.length != 0) {
+          fileType.map((type) => {
+            const fileTypes = file.type;
+            if (fileTypes === "image/" + type) {
+              setIsError(false);
+              setFile(file);
+              return;
+            }
+            setIsError(true);
+            console.log("File type is not supported");
+          });
+        } else {
           setIsError(false);
           setFile(file);
-          return;
         }
-        setIsError(true);
-        console.log("File type is not supported");
       });
     }}>
       {({ getRootProps, getInputProps }) => (
@@ -34,7 +41,13 @@ export const FileUploader: React.VFC<Props> = ({ setFile, fileType, error }: Pro
             <Text>Dragdrop some files here, or click to select files</Text>
           </Row>
           <Row justify="center">
-            <Text>{fileType}</Text>
+            {fileType.map((type, i) => {
+              return (
+                <div key={i}>
+                  <Text>{type}, </Text>
+                </div>
+              );
+            })}
           </Row>
           <Spacer y={2}></Spacer>
           {(error || isError) &&

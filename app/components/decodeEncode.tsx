@@ -1,5 +1,5 @@
 import React from "react";
-import { Textarea, Grid, Spacer, Button } from "@nextui-org/react";
+import { Textarea, Grid, Button } from "@nextui-org/react";
 
 type Props = {
   encodeSet: (value: string) => void;

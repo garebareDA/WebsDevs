@@ -69,7 +69,7 @@ export default function Index(): React.ReactElement {
   ];
 
   const graphics: App[] = [
-    { name: "Color Blind Simulator", icon: colorBlindIcon, path: "colorBlind" },
+    { name: "Color Blind", icon: colorBlindIcon, path: "colorBlind" },
     { name: "Image Compressor", icon: imageIcon, path: "imageCompressor" },
     { name: "Image Converter", icon: imageConvertIcon, path: "imageConverter" },
   ];
@@ -101,13 +101,12 @@ export default function Index(): React.ReactElement {
       </Row>
       <hr />
       <Spacer y={2} />
-      <Grid.Container gap={3}>
+      <Grid.Container gap={2}>
         {apps.map((app, index) => {
           return (
             <div key={index}>
-              <Grid.Container key={index} gap={4}>
+              <Grid.Container key={index} gap={1}>
                 <Row>
-                  <Spacer y={2} />
                   <Text>{app.name}</Text>
                 </Row>
                 {app.list.map((app, index) => {
@@ -118,6 +117,7 @@ export default function Index(): React.ReactElement {
                   );
                 })}
               </Grid.Container>
+              <Spacer y={2} />
             </div>
           );
         })}

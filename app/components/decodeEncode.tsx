@@ -1,5 +1,5 @@
 import React from "react";
-import { Textarea, Grid, Spacer, Button } from "@nextui-org/react";
+import { Textarea, Grid, Button } from "@nextui-org/react";
 
 type Props = {
   encodeSet: (value: string) => void;
@@ -58,8 +58,8 @@ export const TextAreaEncodeDecode = ({
         </Grid>
       </Grid.Container>
       <Grid.Container gap={1}>
-        <Grid xs={6} justify="flex-end">
-          <Button.Group>
+        <Grid xs={6} justify="flex-end" >
+          <Button.Group size="xs">
             <Button onClick={() => {
               navigator.clipboard.writeText(decodeValue);
             }}> Copy </Button>
@@ -75,7 +75,7 @@ export const TextAreaEncodeDecode = ({
         </Grid>
 
         <Grid xs={6} justify="flex-end">
-          <Button.Group>
+          <Button.Group size="xs">
             <Button onClick={() => {
               navigator.clipboard.writeText(encodeValue);
             }}> Copy </Button>

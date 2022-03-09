@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 
 import { App } from '~/desktop/App';
@@ -30,95 +30,32 @@ ReactDOM.render(
   <React.StrictMode>
     <NextUIProvider>
       <BrowserRouter>
-        <Route path='/'>
-          <App />
-        </Route>
-
-        <Route path='base64'>
-          <Base64 />
-        </Route>
-
-        <Route path='basenumber'>
-          <BaseNumber />
-        </Route>
-
-        <Route path='checksum'>
-          <Checksum />
-        </Route>
-
-        <Route path='colorBlind'>
-          <ColorBlind />
-        </Route>
-
-        <Route path='convert'>
-          <Convert />
-        </Route>
-
-        <Route path='diff'>
-          <Diff />
-        </Route>
-
-        <Route path='hash'>
-          <Hash />
-        </Route>
-
-        <Route path='html'>
-          <Html />
-        </Route>
-
-        <Route path='imageCompressor'>
-          <ImageCompressor />
-        </Route>
-
-        <Route path='imageConverter'>
-          <ImageConverter />
-        </Route>
-
-        <Route path='jsonFormatter'>
-          <JsonFormatter />
-        </Route>
-
-        <Route path='jwt'>
-          <Jwt />
-        </Route>
-
-        <Route path='loremIpsum'>
-          <LoremIpsum />
-        </Route>
-
-        <Route path='markdown'>
-          <Markdown />
-        </Route>
-
-        <Route path='regex'>
-          <Regex />
-        </Route>
-
-        <Route path='sqlFormatter'>
-          <SqlFormatter />
-        </Route>
-
-        <Route path='text'>
-          <Text />
-        </Route>
-
-        <Route path='url'>
-          <Url />
-        </Route>
-
-        <Route path='uuid'>
-          <Uuid />
-        </Route>
-
-        <Route path='xmlFormatter'>
-          <XmlFormatter />
-        </Route>
-
-        <Route path='zip'>
-          <Zip />
-        </Route>
+        <Routes>
+          <Route path='/' element={<App />} />
+          <Route path='base64' element={<Base64 />} />
+          <Route path='basenumber' element={<BaseNumber />} />
+          <Route path='checksum' element={<Checksum />} />
+          <Route path='colorBlind' element={<ColorBlind />} />
+          <Route path='convert' element={<Convert />} />
+          <Route path='diff' element={<Diff />} />
+          <Route path='hash' element={<Hash />} />
+          <Route path='html' element={<Html />} />
+          <Route path='imageCompressor' element={<ImageCompressor />} />
+          <Route path='imageConverter' element={<ImageConverter />} />
+          <Route path='jsonFormatter' element={<JsonFormatter />} />
+          <Route path='jwt' element={<Jwt />} />
+          <Route path='loremIpsum' element={<LoremIpsum />} />
+          <Route path='markdown' element={<Markdown />} />
+          <Route path='regex' element={<Regex />} />
+          <Route path='sqlFormatter' element={<SqlFormatter />} />
+          <Route path='text' element={<Text />} />
+          <Route path='url' element={<Url />} />
+          <Route path='uuid' element={<Uuid />} />
+          <Route path='xmlFormatter' element={<XmlFormatter />} />
+          <Route path='zip' element={<Zip />} />
+        </Routes>
       </BrowserRouter>
     </NextUIProvider>
-  </React.StrictMode>,
+  </React.StrictMode >,
   document.getElementById('root')
 );

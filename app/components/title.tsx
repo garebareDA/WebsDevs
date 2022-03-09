@@ -1,4 +1,4 @@
-import { useNavigate } from "remix";
+import { useNavigate } from "react-router";
 import { Text, Grid, Button } from "@nextui-org/react";
 import React from "react";
 

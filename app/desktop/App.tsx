@@ -8,7 +8,11 @@ export const App: React.FC = () => {
   return (
     <Container justify="center" style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <Row>
-        <img src={dotIcon} />
+        <img src={dotIcon} style={{
+          maxHeight: "40px",
+          maxWidth: "40px",
+          borderRadius: "50%",
+        }} />
         <Text size={32}>DotToys</Text>
       </Row>
       <hr />

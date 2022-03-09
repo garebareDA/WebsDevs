@@ -39,6 +39,8 @@
   "devDependencies": {
     "@babel/runtime": "^7.17.2",
     "@remix-run/dev": "^1.2.1",
+    "@tauri-apps/api": "^1.0.0-rc.2",
+    "@tauri-apps/cli": "^1.0.0-rc.7",
     "@types/crypto-js": "^4.1.1",
     "@types/extract-colors": "^1.1.0",
     "@types/get-image-colors": "^4.0.1",
@@ -54,7 +56,8 @@
     "eslint-plugin-react": "^7.28.0",
     "prettier": "^2.5.1",
     "typescript": "^4.1.2",
-    "vite": "^2.8.6"
+    "vite": "^2.8.6",
+    "vite-plugin-dynamic-import": "^0.1.1"
   },
   "engines": {
     "node": ">=14"
@@ -65,6 +68,7 @@
     "build": "remix build",
     "dev": "cross-env NODE_ENV=development netlify dev",
     "start": "cross-env NODE_ENV=production netlify dev",
-    "lint": "eslint app"
+    "lint": "eslint app",
+    "tauri": "tauri"
   }
 }

@@ -4,7 +4,7 @@ import { Title } from "~/components/title";
 import { BaseNumberInput, NumberInput } from "~/components/numberInput";
 import type { BaseNumber } from "~/components/numberInput";
 
-export default function BaseNumber(): React.ReactElement {
+export default function Index(): React.ReactElement {
   const baseNumberList: BaseNumber[] = [
     { name: "Binary", value: 2 },
     { name: "Octal", value: 8 },

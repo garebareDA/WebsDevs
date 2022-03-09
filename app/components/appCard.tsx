@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useNavigate } from "remix";
+import React  from "react";
+import { useNavigate} from "react-router";
 import { Card, Text, Row } from "@nextui-org/react";
 
 type CardProps = {

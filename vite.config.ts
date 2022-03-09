@@ -7,6 +7,9 @@ export default defineConfig({
   build: {
     outDir: '../dist',
   },
+  optimizeDeps: {
+    exclude: ["@remix-run/netlify", "@remix-run/react", "@remix-run/dev"],
+  },
   plugins: [react()],
   alias: {
     "~/": "../../app/"

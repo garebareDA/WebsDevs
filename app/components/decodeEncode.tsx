@@ -67,7 +67,7 @@ export const TextAreaEncodeDecode = ({
               navigator.clipboard.readText().then((text) => {
                 decodeSet(text);
               });
-            }}>Pest</Button>
+            }}>Paste</Button>
             <Button onClick={() => {
               decodeSet("");
             }}> Delete </Button>
@@ -83,7 +83,7 @@ export const TextAreaEncodeDecode = ({
               navigator.clipboard.readText().then((text) => {
                 encodeSet(text);
               });
-            }}>Pest</Button>}
+            }}>Paste</Button>}
             {!readonly && <Button onClick={() => { encodeSet(""); }}> Delete </Button>}
           </Button.Group>
         </Grid>

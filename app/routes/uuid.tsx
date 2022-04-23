@@ -12,7 +12,7 @@ export default function Index(): React.ReactElement {
     <div>
       <Container gap={1} justify="center">
         <Spacer y={1} />
-        <Title title="UUID"></Title>
+        <Title title="UUID" />
         <Spacer y={2} />
         <Row justify="center">
           <GenerateInput name="v1" value={uuidV1} />
@@ -29,13 +29,10 @@ export default function Index(): React.ReactElement {
           }}>Generate</Button>
           <Input labelLeft="X" type="number" min={1} value={count.toString()} onChange={(e) => {
             const value = parseInt(e.target.value);
-            if (
-              ((value >= 2 && value <= 36) || Number.isNaN(value)) &&
-              value !== count
-            ) {
+            if (value) {
               setCount(value);
             }
-          }}></Input>
+          }} />
         </Row>
       </Container>
     </div>
